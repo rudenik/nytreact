@@ -1,17 +1,16 @@
 import React from "react";
+import SearchBox from "./components/SearchBox"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 
 const App = () => (
-  <Router>
+  
     <div>
+      <SearchBox/>
       
-      <Switch>
-        
-      </Switch>
     </div>
-  </Router>
+  
 );
 
 export default App; 

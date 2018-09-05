@@ -1,5 +1,5 @@
 import axios from "axios";
-import cheerio from "cheerio";
+
 
 export default {
     getArticles: function() {
@@ -14,16 +14,19 @@ export default {
     saveArticle: function(article){
         return axios.post("/api/articles", article);
     },
-    scrapeArticles: function(){
+    searchArticles: function(term){
         var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-        url += '?' + $.param({
+        var params = {
             'api-key': "360b06b831504b2bb39cadc38c615e19",
             'q': term//,
             // 'begin_date': "19840101",
             // 'end_date': "19840101",
             // 'page': 5
 
-        })
+        }
+        url += '?' + params
+
+        
         axios.get(url)
     }
 
