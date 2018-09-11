@@ -14,20 +14,20 @@ export default {
     saveArticle: function(article){
         return axios.post("/api/articles", article);
     },
-    searchArticles: function(term){
+    searchArticles: function(req){
         var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-        var params = {
-            'api-key': "360b06b831504b2bb39cadc38c615e19",
-            'q': term//,
-            // 'begin_date': "19840101",
-            // 'end_date': "19840101",
-            // 'page': 5
-
-        }
-        url += '?' + params
-
+        var APIKey = "360b06b831504b2bb39cadc38c615e19";
+        var params = `api-key=${APIKey}&q=${req.term}`;
+            // 'q': req.term
+            // 'q': req.term,
+            // 'begin_date': req.begin_date,
+            // 'end_date': req.end_date
         
-        axios.get(url)
+        var headers = {"Access-Control-Allow-Origin": "*"}
+        
+        
+        url += '?' + params
+        return axios.get(url, headers)
     }
 
 }

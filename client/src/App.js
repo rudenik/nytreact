@@ -1,17 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
 import SearchBox from "./components/SearchBox"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import API from "./utils/API";
+import Home from "./components/Home";
+import { Row, Col, Container } from "./components/Grid";
 
 
+class App extends Component {
+  state = {
+    results: {},
+  }
 
-const App = () => (
-  
+  performSearch = searchParams => {
+    console.log(searchParams);
+    API.searchArticles(searchParams)
+        .then(res => this.setState({ results : res.data.response.docs }) 
+        
+        )
+        .catch(err => console.log(err))
+        // console.log(this.state.results);
+    };
+
+    
+    
+  render(){
+    return(
     <div>
-      <SearchBox/>
-      
+      <SearchBox callBackToApp = {this.performSearch}/>
+      <Home state = {this.state.results} />
     </div>
   
-);
+    )}
+
+};
+  
 
 export default App; 
 

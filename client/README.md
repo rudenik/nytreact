@@ -1,3 +1,3 @@
 # nytreact
 
-Scrape and Save NYT Articles.
+Query and Save NYT Articles.
