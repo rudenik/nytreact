@@ -9,10 +9,10 @@ class Home extends Component {
     state = {
         docs: this.props.results
     }
-    handleSaveClick = (article) => {
-        console.log(article);
-        // API.saveArticle(article);
-    }
+    // handleSaveClick = (article) => {
+    //     console.log(article);
+    //     // API.saveArticle(article);
+    // }
 
     componentWillReceiveProps(props) {
         this.setState({ docs: props });
@@ -22,9 +22,9 @@ class Home extends Component {
     return (
         this.state.docs.state.map(element => 
             (
-                
-                <Card key={element._id} title={element.headline.main} byline={element.snippet} link={element.web_url} saveUrl={this.handleSaveClick(element)}/>
-                
+                <Card key={element._id} title={element.headline.main} 
+                byline={element.snippet} link={element.web_url} articleToSave={element} 
+                date={element.pub_date}/>
             )))
     }
    
@@ -48,11 +48,7 @@ class Home extends Component {
                 </Container>
                     )
                 }
-        
-        
             }
-        
-        
         }
 
         //photo={"https://www.nytimes.com/" + element.multimedia[8]["url"]} 

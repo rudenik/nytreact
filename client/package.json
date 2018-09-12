@@ -5,11 +5,14 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "axios": "^0.16.2",
+    "moment": "^2.22.2",
+    "mongoose": "^5.0.17",
+    "prop-types": "^15.6.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14",
-    "axios": "^0.16.2",
-    "mongoose": "^5.0.17"
+    "react-moment": "^0.7.9",
+    "react-scripts": "1.0.14"
   },
   "scripts": {
     "start": "react-scripts start",

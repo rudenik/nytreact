@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 const articleSchema = new Schema ({
     title: {type: String, required: true },
     url: {type: String, required: true },
-    date: {type: Date, default: Date.now  }
+    date: {type: Date, default: Date.now  },
+    byline: { type: String }
+
 })
 
 const Article = mongoose.model("Article", articleSchema);

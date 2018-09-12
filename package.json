@@ -1,5 +1,5 @@
 {
-  "name": "nytreact",
+  "name": "client",
   "version": "1.0.0",
   "description": "NewYorkTimes MongoScraper with React",
   "main": "server.js",
@@ -24,6 +24,8 @@
     "cors": "^2.8.4",
     "express": "^4.15.4",
     "if-env": "^1.0.4",
-    "mongoose": "^5.0.17"
+    "moment": "^2.22.2",
+    "mongoose": "^5.0.17",
+    "react-moment": "^0.7.9"
   }
 }

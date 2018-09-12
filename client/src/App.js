@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "./utils/API";
 import Home from "./components/Home";
 import { Row, Col, Container } from "./components/Grid";
+import Saved from "./components/Saved";
 
 
 class App extends Component {
@@ -15,10 +16,8 @@ class App extends Component {
     console.log(searchParams);
     API.searchArticles(searchParams)
         .then(res => this.setState({ results : res.data.response.docs }) 
-        
         )
         .catch(err => console.log(err))
-        // console.log(this.state.results);
     };
 
     
@@ -28,6 +27,7 @@ class App extends Component {
     <div>
       <SearchBox callBackToApp = {this.performSearch}/>
       <Home state = {this.state.results} />
+      <Saved/>
     </div>
   
     )}

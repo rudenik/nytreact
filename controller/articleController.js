@@ -17,7 +17,11 @@ module.exports = {
     create: function(req, res){
         db.Article
             .create(req.body)
-            .then(dbModel => res.json(dbModel))
+            .then(dbModel => {
+                console.log(dbModel);
+                res.json(dbModel);
+            })
+                
             .catch(err => res.status(422).json(err));
     },
     remove: function(req, res){

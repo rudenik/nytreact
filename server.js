@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use(routes);
 // app.use(cors());
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact", { useNewUrlParser: true });
 // Send every other request to the React app
 // Define any API routes before this runs
 // app.get("*", (req, res) => {

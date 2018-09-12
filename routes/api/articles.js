@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const articleController = require("../../controller/articleController");
 
-router.route("/articles")
+router.route("/")
     .get(articleController.findAll)
     .post(articleController.create);
 router
