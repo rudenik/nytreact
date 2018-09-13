@@ -9,22 +9,19 @@ class Home extends Component {
     state = {
         docs: this.props.results
     }
-    // handleSaveClick = (article) => {
-    //     console.log(article);
-    //     // API.saveArticle(article);
-    // }
-
     componentWillReceiveProps(props) {
         this.setState({ docs: props });
     }
+    homeSaveCallBack = (article) => {
+        this.props.refreshSaved(article);
+    }
     resultsRender = () => {
-    // console.log(this.state.docs);
     return (
         this.state.docs.state.map(element => 
             (
                 <Card key={element._id} title={element.headline.main} 
                 byline={element.snippet} link={element.web_url} articleToSave={element} 
-                date={element.pub_date}/>
+                date={element.pub_date} saveCallBack={this.homeSaveCallBack}/>
             )))
     }
    

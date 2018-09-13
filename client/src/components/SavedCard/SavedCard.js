@@ -1,18 +1,12 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
 import Moment from "react-moment";
 
 class SavedCard extends Component {
-    // const article = props.article;
     handleDeleteClick = (article) => {
-        // this.props.onSaveClick(article)
         console.log(article);
-        // var 
-        
     }
     
     render() {
-        
             return (
                 <div className="card">
                     <div className="card-body">

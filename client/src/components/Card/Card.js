@@ -1,20 +1,17 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
 import Moment from "react-moment";
 
 class Card extends Component {
-    // const article = props.article;
     handleSaveClick = (article) => {
-        // this.props.onSaveClick(article)
         console.log(article);
-        // var 
-        API.saveArticle({
+        var artToSave = {
             _id: article._id,
             title: article.headline.main,
             byline: article.snippet,
             url: article.web_url,
             date: article.pub_date
-        });
+        }
+        this.props.saveCallBack(artToSave);
     }
     
     render() {
@@ -31,7 +28,6 @@ class Card extends Component {
                         <Moment>
                             {this.props.date}
                         </Moment>
-                       
                     </div>
                 </div>
             )
@@ -48,18 +44,7 @@ class Card extends Component {
             </div>
             )
         }
-            
-
     }
-
 }
 
 export default Card;
-
-//<img className="card-img-top" src={props.photo} alt="Card image cap"/>
-//{this.props.date.toLocaleDateString()}
-// {new Intl.DateTimeFormat("en-US", {
-//     year: "numeric",
-//     month: "long",
-//     day: "2-digit"
-// }).format(this.props.date)}

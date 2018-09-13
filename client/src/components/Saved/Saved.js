@@ -6,9 +6,13 @@ import SavedCard from "../SavedCard";
 
 class Saved extends Component {
     state = {
-        savedArticles: []
+        savedArticles: [],
+        saved: this.props.saved
     }
-
+    componentWillReceiveProps(){
+        this.getSaved();
+        
+    }
     componentWillMount(){
         this.getSaved();
     }
@@ -20,11 +24,12 @@ class Saved extends Component {
         }            
         )}
     
-    deleteArticle = (article) => {
+    removeArticle = (article) => {
         console.log("delete Article Called");
-        API.deleteArticle(article)
-        //find the deleted article in the array and pop it and re-set the state
-        
+        let filteredArray = this.state.savedArticles.filter(item => item._id !== article)
+        console.log(filteredArray)
+        this.setState({savedArticles: filteredArray});
+        API.deleteArticle(article);
     }
 
     savedArticleRender = () => {
@@ -34,7 +39,7 @@ class Saved extends Component {
                 (
                 <SavedCard key = {element._id} title={element.title} 
         byline={element.byline} link={element.web_url} articleToDelete={element._id} 
-        date={element.pub_date} deleteClick={this.deleteArticle}/>
+        date={element.pub_date} deleteClick={this.removeArticle}/>
             )))
     }
     

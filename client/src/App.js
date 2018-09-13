@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 import SearchBox from "./components/SearchBox"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "./utils/API";
 import Home from "./components/Home";
-import { Row, Col, Container } from "./components/Grid";
 import Saved from "./components/Saved";
 
+//double check the time parameters in the NYT API
+//check why visit button on saved article components text is dark? 
+//css?
+//heroku?
+//clean up console errors. 
+//clean up console calls.
 
 class App extends Component {
   state = {
     results: {},
+    saveResults: []
   }
 
   performSearch = searchParams => {
@@ -20,14 +25,20 @@ class App extends Component {
         .catch(err => console.log(err))
     };
 
-    
+    tellSavedToRefresh = (articleToSave) => {
+      console.log(articleToSave)
+      API.saveArticle(articleToSave);
+      let updatedArray = this.state.saveResults.push(articleToSave);
+      this.setState({saved: updatedArray });
+    }
+
     
   render(){
     return(
     <div>
       <SearchBox callBackToApp = {this.performSearch}/>
-      <Home state = {this.state.results} />
-      <Saved/>
+      <Home state = {this.state.results} refreshSaved = {this.tellSavedToRefresh} />
+      <Saved saved = {this.state.saveResults}/>
     </div>
   
     )}
