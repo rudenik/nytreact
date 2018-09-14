@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "../Grid";
+import { Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
 import Card from "../Card";
-import API from "../../utils/API";
+
 
 
 class Home extends Component {

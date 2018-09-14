@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import Jumbotron from "../Jumbotron";
 import { Container } from "../Grid";
 import SavedCard from "../SavedCard";
+import "./Saved.css"
 
 class Saved extends Component {
     state = {
@@ -19,21 +20,18 @@ class Saved extends Component {
     getSaved = () =>{
         API.getArticles()
         .then(res => {
-            console.log(res);
+            
             this.setState({ savedArticles: res.data})
         }            
         )}
     
     removeArticle = (article) => {
-        console.log("delete Article Called");
         let filteredArray = this.state.savedArticles.filter(item => item._id !== article)
-        console.log(filteredArray)
         this.setState({savedArticles: filteredArray});
         API.deleteArticle(article);
     }
 
     savedArticleRender = () => {
-        console.log(this.state.savedArticles)
         return (
              this.state.savedArticles.map(element=>
                 (

@@ -34,7 +34,7 @@ class Card extends Component {
         } else {
             return (
             <div className="card">
-                <img className="card-img-top" src={this.props.photo} alt="Card image cap" />
+                <img className="card-img-top" src={this.props.photo} alt="HeadlineThumbnail" />
                 <div className="card-body">
                     <h5 className="card-title" style={{ textAlign: "left" }}>{this.props.title}</h5>
                     <p className="card-text" style={{ textAlign: "left" }} >{this.props.byline}</p>

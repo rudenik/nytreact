@@ -3,6 +3,7 @@ import Jumbotron from "../Jumbotron";
 import { Container } from "../Grid";
 import Input from "../Input";
 
+
 class SearchBox extends Component {
     state = {
         term: "",
@@ -20,11 +21,8 @@ class SearchBox extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log("form submitted");
         this.props.callBackToApp(this.state);
         this.setState({term: "", begin_date: "", end_date: ""});
-       
-
     };
 
     render() {
@@ -36,19 +34,17 @@ class SearchBox extends Component {
                         </h3>
                             <form>
                                 <label >Search Term</label>
-                                <Input name="term" id="term" onChange={this.handleInputChnage} value={this.state.term} placeholder="EG. 'Water Gate' (required)" />
+                                <Input name="term" id="term" type="text" onChange={this.handleInputChnage} value={this.state.term} placeholder="EG. 'Water Gate' (required)" />
                                 <label >Start Date</label>
-                                <Input name="startDate" id="startDate" onChange={this.handleInputChnage} value={this.state.startDate} placeholder="Search time frame start date (optional)" />
+                                <Input name="begin_date" id="begin_date" type="date" onChange={this.handleInputChnage} value={this.state.startDate} placeholder="yyyy/mm/dd (optional)" />
                                 <label >End Date</label>
-                                <Input name="endDate" id="endDate" onChange={this.handleInputChnage} value={this.state.endDate} placeholder="Search time frame start date (optional)" />
+                                <Input name="end_date" id="end_date" type="date" onChange={this.handleInputChnage} value={this.state.endDate} placeholder="yyyy/mm/dd (optional)" />
                                 <button type="button" className="btn btn-primary"  onClick={this.handleFormSubmit}>Query API</button>
                             </form>
                             </Jumbotron>
                 </Container>
         )
     }
-
-
 }
 
 export default SearchBox;

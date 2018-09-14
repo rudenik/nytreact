@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Moment from "react-moment";
+import "./SavedCard.css";
 
 class SavedCard extends Component {
     handleDeleteClick = (article) => {
@@ -12,7 +13,7 @@ class SavedCard extends Component {
                     <div className="card-body">
                         <h5 className="card-title" style={{ textAlign: "left" }}>{this.props.title}</h5>
                         <p className="card-text" style={{ textAlign: "left" }} >{this.props.byline}</p>
-                        <a href={this.props.link} className="btn btn-primary">Visit Article</a>
+                        <a href={this.props.link} style={{ color: "white"}} className="btn btn-primary">Visit Article</a>
                         <button onClick={() => this.props.deleteClick(this.props.articleToDelete)} className="btn btn-danger">Delete Article</button>
                     </div>
                     <div className="card-footer text-muted">
