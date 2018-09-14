@@ -5,12 +5,6 @@ import Home from "./components/Home";
 import Saved from "./components/Saved";
 
 
-
-//css?
-//heroku?
-//clean up console errors. 
-//clean up console calls.
-
 class App extends Component {
   state = {
     results: {},

@@ -5,3 +5,7 @@ button{
 a .btn .btn-primary{
     color :white;
 }
+p, h5{
+
+    color: black;
+}

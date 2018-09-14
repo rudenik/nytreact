@@ -1,0 +1,10 @@
+button .btn .btn-primary{
+    margin: 25px;
+}
+label{
+    margin: 15px;
+}
+.jumbotron{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}

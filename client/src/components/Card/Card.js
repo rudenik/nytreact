@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Moment from "react-moment";
+import "./Card.css";
 
 class Card extends Component {
     handleSaveClick = (article) => {
